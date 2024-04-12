@@ -1,5 +1,6 @@
 import 'package:red_dot_ent/utils/constants/exports.dart';
 import 'package:red_dot_ent/utils/theme/custom_themes/drawer_theme.dart';
+import 'package:red_dot_ent/utils/theme/slider_theme.dart';
 
 class EAppTheme {
   EAppTheme._();
@@ -17,6 +18,7 @@ class EAppTheme {
     elevatedButtonTheme: EElevatedButtonTheme.lightElevatedButtonTheme,
     outlinedButtonTheme: EOutlinedButtonTheme.lightOutlinedButtonTheme,
     inputDecorationTheme: ETextFormFieldTheme.lightInputDecorationTheme,
+    sliderTheme: ESliderTheme.lightSliderTheme,
     colorScheme: const ColorScheme(
       brightness: Brightness.light,
       primary: EColors.primary,
@@ -27,7 +29,7 @@ class EAppTheme {
       onError: EColors.black,
       background: EColors.backgroundDark,
       onBackground: EColors.primary,
-      surface: EColors.accent,
+      surface: EColors.tertiary,
       onSurface: EColors.primary,
     ),
   );
@@ -43,6 +45,7 @@ class EAppTheme {
     elevatedButtonTheme: EElevatedButtonTheme.darkElevatedButtonTheme,
     outlinedButtonTheme: EOutlinedButtonTheme.lightOutlinedButtonTheme,
     inputDecorationTheme: ETextFormFieldTheme.lightInputDecorationTheme,
+    sliderTheme: ESliderTheme.darkSliderTheme,
     colorScheme: const ColorScheme(
       brightness: Brightness.dark,
       primary: EColors.primary,
@@ -53,7 +56,7 @@ class EAppTheme {
       onError: EColors.black,
       background: EColors.backgroundDark,
       onBackground: EColors.primary,
-      surface: EColors.accent,
+      surface: EColors.tertiary,
       onSurface: EColors.primary,
     ),
   );

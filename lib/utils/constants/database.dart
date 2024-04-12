@@ -1,4 +1,5 @@
 class EData {
+  EData._();
   // static const String dataUrl = 'https://ryblbfyokjlcikecjqap.supabase.co';
 
   // static const String dataKey =

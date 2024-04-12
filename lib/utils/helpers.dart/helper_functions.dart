@@ -16,26 +16,6 @@ class EHelperFunctions {
   //   }
   // }
 
-// TODO: MOVE SNACKBARS TO UTILS/POPUPS/LOADERS
-
-  static void showAlert(String title, String message) {
-    showDialog(
-      context: Get.context!,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(title),
-          content: Text(message),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: const Text('OK'),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
   static void navigateToScreen(BuildContext context, Widget screen) {
     Navigator.push(
       context,
@@ -58,6 +38,14 @@ class EHelperFunctions {
   static String getFormattedDate(DateTime date,
       {String format = 'dd MMM yyyy'}) {
     return DateFormat(format).format(date);
+  }
+
+  static String getFormattedTime(Duration duration) {
+    String twoDigits(int n) => n.toString().padLeft(2, '0');
+    final hours = twoDigits(duration.inHours);
+    final minutes = twoDigits(duration.inMinutes.remainder(60));
+    final seconds = twoDigits(duration.inSeconds.remainder(60));
+    return [if (duration.inHours > 0) hours, minutes, seconds].join(':');
   }
 
   static List<E> removeDuplicates<E>(List<E> list) {

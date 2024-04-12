@@ -31,9 +31,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       scrollBehavior: CustomScrollBehavior(),
-      title: EText.reservations,
+      title: EText.name,
       // Detects device theme
-      themeMode: ThemeMode.system,
+      // themeMode: ThemeMode.system,
+      themeMode: ThemeMode.light,
       theme: EAppTheme.lightTheme,
       darkTheme: EAppTheme.darkTheme,
       initialBinding: GeneralBindings(),

@@ -1,4 +1,5 @@
 import 'package:red_dot_ent/utils/constants/exports.dart';
+import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
 class OnHoverButton extends StatelessWidget {
   const OnHoverButton({
@@ -33,7 +34,7 @@ class OnHoverButton extends StatelessWidget {
             backgroundColor: MaterialStateProperty.all<Color>(
               controller.isHovered[controllerKey]?.value ?? false
                   ? EColors.secondary
-                  : EColors.primary,
+                  : EColors.accent,
             ),
           ),
           child: Text(

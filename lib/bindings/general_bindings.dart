@@ -1,4 +1,5 @@
 import 'package:red_dot_ent/common/controllers/navigation_controller.dart';
+import 'package:red_dot_ent/features/music/controllers/playlist_controller.dart';
 import 'package:red_dot_ent/utils/constants/exports.dart';
 
 class GeneralBindings extends Bindings {
@@ -19,5 +20,6 @@ class GeneralBindings extends Bindings {
     // Get.put(SizeController());
     Get.put(OnHoverButtonController());
     Get.put(NavigationController());
+    Get.put(PlaylistController());
   }
 }

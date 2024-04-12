@@ -10,12 +10,27 @@ class EImages {
   static const String logoBlack = "assets/images/logo_black.png";
   static const String logoWhite = "assets/images/logo_white.png";
   static const String abstract1 = "assets/images/abstract1.png";
-  static const String bg = 'assets/images/studio1.jpg';
+  static const String bg = 'assets/images/studio6.jpg';
 
   /// --- Gallery Images --- ///
-  static const String studio1 = "assets/images/studio1.jpg";
-  static const String studio2 = "assets/images/studio2.jpg";
-  static const String studio3 = "assets/images/studio3.jpg";
+  static const String studio1 = "assets/images/studio4.jpg";
+  static const String studio2 = "assets/images/studio5.jpg";
+  static const String studio3 = "assets/images/studio6.jpg";
+  static const String studio4 = "assets/images/studio1.jpg";
+  static const String studio5 = "assets/images/studio2.jpg";
+  static const String studio6 = "assets/images/studio3.jpg";
+  static const String austin1 = "assets/images/austin1.jpg";
+
+  /// --- Album Art --- ///
+  static const String playlistBlocBoy = 'assets/images/album/bloc_boy.jpg';
+  static const String playlistLilDurkLilBaby =
+      'assets/images/album/lil_durk_lil_baby.png';
+  static const String playlistRoddyRicch =
+      'assets/images/album/roddy_ricch.jpeg';
+  static const String playlistCeo = 'assets/images/album/ceo.jpeg';
+  static const String playlistFuture = 'assets/images/album/future.jpeg';
+  static const String playlistJd = 'assets/images/album/jd.jpg';
+  static const String playlistSir = 'assets/images/album/sir.jpeg';
 
   /// ------------------------------------------------------------------ ///
   /// --- ICONS --- ///

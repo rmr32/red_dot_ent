@@ -1,6 +1,31 @@
 import 'package:red_dot_ent/utils/constants/exports.dart';
 
 class ELoaders {
+  static void showForm(
+      {String title = EText.name,
+      String hint = EText.formHintEmail,
+      String buttonText = EText.buttonSubmit}) {
+    showDialog(
+      context: Get.context!,
+      barrierColor: EColors.primary.withOpacity(EStyle.colorBlockOpacity),
+      builder: (context) => AlertDialog(
+        backgroundColor: EColors.secondary,
+        title: Text(title),
+        content: TextField(
+          decoration: InputDecoration(hintText: hint),
+        ),
+        // actions: [TextButton(onPressed: null, child: Text(buttonText))],
+        actions: [
+          OnHoverButton(
+            controllerKey: '6',
+            text: buttonText,
+            onPressed: () => Navigator.of(context).pop(),
+          )
+        ],
+      ),
+    );
+  }
+
   static void showSnackBar(String message) {
     ScaffoldMessenger.of(Get.context!).showSnackBar(
       SnackBar(content: Text(message)),
@@ -10,7 +35,7 @@ class ELoaders {
   static hideSnackBar() =>
       ScaffoldMessenger.of(Get.context!).hideCurrentSnackBar();
 
-  static showSnackBarCustom({required message, elevation = 0, duration = 3}) {
+  static showSnackBarCustom({required message, elevation = 0.0, duration = 3}) {
     ScaffoldMessenger.of(Get.context!).showSnackBar(
       SnackBar(
         elevation: elevation,

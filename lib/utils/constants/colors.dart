@@ -10,7 +10,7 @@ class EColors {
   ///
   static const Color primary = Colors.black;
   static const Color secondary = Colors.white;
-  static const Color tertiary = accent;
+  static const Color tertiary = Color.fromARGB(255, 73, 73, 73);
 
   static const Color accent = Color(0xFFe13c33);
 
@@ -20,7 +20,7 @@ class EColors {
 
   /// --- Background Colors --- ///
   static const Color backgroundLight = EColors.white;
-  static const Color backgroundDark = Color(0xFF3A4037);
+  static const Color backgroundDark = EColors.primary;
 
   /// --- Gradient Colors --- ///
   static const Gradient linearGradient = LinearGradient(

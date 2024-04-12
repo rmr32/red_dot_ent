@@ -1,5 +1,8 @@
+import 'package:red_dot_ent/utils/constants/exports.dart';
+
 class ERoutes {
   static const home = '/reservations';
+  // static const home = EText.home;
 
   static const homescreen = '/home';
 

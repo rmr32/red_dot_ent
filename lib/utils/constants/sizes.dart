@@ -17,10 +17,11 @@ class ESizes {
 
   /// --- Responsive Sizes --- ///
   static const double mobile = 500;
-  static const double tablet = 1100;
+  static const double tablet = 1185;
 
   /// --- Elevation Sizes ---///
   static const double elevationMd = 5;
+  static const double elevationSm = 3;
 
   /// ------------------------------------------------------------------ ///
   /// SHIMMER EFFECTS
@@ -79,22 +80,22 @@ class ESizes {
   ///
   /// --- Padding and margin sizes --- ///
   static const double xs = 4.0;
-  static const double sm = 8.0;
+  static const double sm = 8.0; // --- Using on Home Page
   static const double md = 16.0;
   static const double lg = 24.0;
-  static const double xl = 32.0;
+  static const double xl = 32.0; // -- Using on Drawer
 
   /// --- Default Spacing Between Selections --- ///
   static const double defaultSpace = 24.0;
-  static const double spaceBtwItems = 16.0;
-  static const double spaceBtwSections = 32.0;
+  static const double spaceBtwItems = 16.0; // --- Using on About Page
+  static const double spaceBtwSections = 32.0; // --- Using on Home Page
 
   /// --- Divider Sizes --- ///
   static const double dividerHeight = 1.0;
 
   /// --- Section Sizes --- ///
   static const double section2Xs = 35;
-  static const double sectionXs = 50;
+  static const double sectionXs = 50; // --- Using on Drawer
   static const double sectionSm = 56;
   static const double sectionMd = 80;
   static const double sectionLg = 100;
@@ -106,10 +107,13 @@ class ESizes {
 
   /// --- Border Radius --- ///
   static const double borderRadiusSM = 4.0;
-  static const double borderRadiusMd = 8.0; // --- Using
-  static const double borderRadiusLg = 12.0;
-  static const double borderRadiusXl = 56;
+  static const double borderRadiusMd = 8.0;
+  static const double borderRadiusLg = 30; // --- Using on ECard
+  static const double borderRadiusXl = 50; // --- Using on Home Page
   static const double borderRadiusXxl = 100;
+
+  /// --- Border Width --- ///
+  static const double borderWidthMd = 2;
 
   /// ------------------------------------------------------------------ ///
   /// ICONS
@@ -185,7 +189,7 @@ class ESizes {
   static const double imageThumbSize = 80.0;
   static const double imageSizeSm = 60;
   static const double imageSizeLg = 100.0;
-  static const double imageSizeXl = 310;
+  static const double imageSizeXl = 300; // --- Using in About Page
   static const double imageSizeXxl = 500.0;
 
   /// --- Circle Image Sizes --- ///

@@ -1,3 +1,5 @@
+import 'package:red_dot_ent/features/pricing/pricing_screen.dart';
+import 'package:red_dot_ent/utils/constants/enums.dart';
 import 'package:red_dot_ent/utils/constants/exports.dart';
 
 class MobileLayout extends StatefulWidget {
@@ -11,10 +13,11 @@ class _MobileLayoutState extends State<MobileLayout> {
   final controller = NavigationController.instance;
   @override
   Widget build(BuildContext context) {
-    double height = EDeviceUtils.getScreenHeight() - ESizes.appBarHeight;
+    double height = EDeviceUtils.getScreenHeight();
     return SafeArea(
       child: Scaffold(
-        backgroundColor: EColors.accent,
+        extendBodyBehindAppBar: true,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         appBar: const EAppBar(
           showBackArrow: false,
           showImplyLeading: true,
@@ -26,8 +29,15 @@ class _MobileLayoutState extends State<MobileLayout> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              // color: EColors.accent.withOpacity(EStyle.colorBlockOpacity),
-              color: EColors.accent,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  colorFilter: ColorFilter.mode(
+                      EColors.primary.withOpacity(EStyle.colorBlockOpacity),
+                      BlendMode.darken),
+                  image: const AssetImage(EImages.bg),
+                  fit: BoxFit.cover,
+                ),
+              ),
               height: height,
               width: double.infinity,
               child: Padding(
@@ -36,20 +46,26 @@ class _MobileLayoutState extends State<MobileLayout> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Obx(() {
-                      switch (controller.currentPage.value) {
-                        case 0:
-                          return const HomeScreen();
-                        case 1:
-                          return const AboutScreen();
-                        case 2:
-                          return const BeatsScreen();
-                        case 3:
-                          return GalleryScreen();
-                        default:
-                          return Container();
-                      }
-                    }),
+                    Obx(
+                      () {
+                        switch (controller.currentPage.value) {
+                          case 0:
+                            return const HomeScreen();
+                          case 1:
+                            return const AboutScreen();
+                          case 2:
+                            return const PricingScreen();
+                          case 3:
+                            return const BeatsScreen();
+                          case 4:
+                            return GalleryScreen();
+                          case 5:
+                            return const ReservationScreen();
+                          default:
+                            return Container();
+                        }
+                      },
+                    ),
                   ],
                 ),
               ),

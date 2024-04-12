@@ -1,3 +1,4 @@
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:red_dot_ent/utils/constants/exports.dart';
 
 class ReservationScreen extends StatefulWidget {
@@ -73,36 +74,31 @@ class _ReservationScreenState extends State<ReservationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Booking Calendar Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
+    return Expanded(
+      child: Center(
+        child: Text(
+          textAlign: TextAlign.center,
+          EText.reservations.toUpperCase(),
+          style: Theme.of(context).textTheme.headlineMedium,
         ),
-        home: SingleChildScrollView(
-          child: Scaffold(
-            appBar: AppBar(
-              title: const Text('Booking Calendar Demo'),
-            ),
-            body: Center(
-              child: BookingCalendar(
-                bookingService: mockBookingService,
-                convertStreamResultToDateTimeRanges: convertStreamResultMock,
-                getBookingStream: getBookingStreamMock,
-                uploadBooking: uploadBookingMock,
-                pauseSlots: generatePauseSlots(),
-                pauseSlotText: 'LUNCH',
-                hideBreakTime: false,
-                loadingWidget: const Text('Fetching data...'),
-                uploadingWidget: const CircularProgressIndicator(),
-                locale: 'en',
-                startingDayOfWeek: StartingDayOfWeek.tuesday,
-                wholeDayIsBookedWidget:
-                    const Text('Sorry, for this day everything is booked'),
-                //disabledDates: [DateTime(2023, 1, 20)],
-                //disabledDays: [6, 7],
-              ),
-            ),
-          ),
-        ));
+      ),
+      // child: BookingCalendar(
+      //   bookingService: mockBookingService,
+      //   convertStreamResultToDateTimeRanges: convertStreamResultMock,
+      //   getBookingStream: getBookingStreamMock,
+      //   uploadBooking: uploadBookingMock,
+      //   pauseSlots: generatePauseSlots(),
+      //   pauseSlotText: 'LUNCH',
+      //   hideBreakTime: false,
+      //   loadingWidget: const Text('Fetching data...'),
+      //   uploadingWidget: const CircularProgressIndicator(),
+      //   locale: 'en',
+      //   startingDayOfWeek: StartingDayOfWeek.tuesday,
+      //   wholeDayIsBookedWidget:
+      //       const Text('Sorry, for this day everything is booked'),
+      //   //disabledDates: [DateTime(2023, 1, 20)],
+      //   //disabledDays: [6, 7],
+      // ),
+    ).animate().fadeIn(duration: 750.ms, curve: Curves.easeIn);
   }
 }

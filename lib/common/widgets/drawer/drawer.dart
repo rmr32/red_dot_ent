@@ -1,4 +1,6 @@
+import 'package:red_dot_ent/common/widgets/drawer/widgets/nav_list_tiles.dart';
 import 'package:red_dot_ent/utils/constants/exports.dart';
+import 'package:red_dot_ent/utils/device/device_utility.dart';
 
 class EDrawer extends StatelessWidget {
   const EDrawer({super.key, this.isRounded = true});
@@ -7,7 +9,6 @@ class EDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final NavigationController controller = Get.find();
     return Drawer(
       backgroundColor: EColors.primary.withOpacity(EStyle.colorBlockOpacity),
       shape: isRounded
@@ -18,102 +19,83 @@ class EDrawer extends StatelessWidget {
                   bottomRight: Radius.circular(0)),
             ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          /// --- Title --- ///
-          DrawerHeader(
-            child: Text(
-              textAlign: TextAlign.center,
-              EText.name.toUpperCase(),
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineMedium!
-                  .copyWith(color: Colors.white),
-            ),
+          Column(
+            children: [
+              /// --- Title --- ///
+              DrawerHeader(
+                // padding: EdgeInsets.zero,
+                child: Text(
+                  textAlign: TextAlign.center,
+                  EText.name.toUpperCase(),
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineMedium!
+                      .copyWith(color: Colors.white),
+                ),
+              ),
+
+              /// --- Navigation --- ///
+              const Column(
+                children: [
+                  ENavTiles(navPage: EText.home),
+                  ENavTiles(navPage: EText.about),
+                  // ENavTiles(navPage: EText.price),
+                  ENavTiles(navPage: EText.beats),
+                  ENavTiles(navPage: EText.gallery),
+                  ENavTiles(navPage: EText.book),
+                ],
+              ),
+            ],
           ),
 
-          /// --- Home --- ///
-          Obx(
-            () => ListTile(
-              // leading: const Icon(
-              //   EImages.iconHome,
-              //   color: EColors.secondary,
-              // ),
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 32.0, vertical: 8.0),
-              title: const Text(EText.home),
-              textColor: EColors.secondary,
-              selected: controller.currentPage.value == 0,
-              selectedColor: EColors.accent,
-              onTap: () {
-                controller.changePage(0);
-                Get.back();
-                // Get.toNamed(ERoutes.home);
-              },
+          /// --- Social Icons --- ///
+          Padding(
+            padding: const EdgeInsets.only(bottom: ESizes.sectionXs),
+            child: Column(
+              children: [
+                Text(
+                  EText.follow,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineSmall!
+                      .copyWith(color: EColors.secondary),
+                ),
+                const SizedBox(height: ESizes.spaceBtwItems),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Spacer(flex: 3),
+                    OnHoverIcon(
+                      controllerKey: EText.twitch,
+                      icon: EIcons.twitch,
+                      onPressed: () {
+                        EDeviceUtils.launchUrl(EText.twitchLink);
+                      },
+                    ),
+                    const Spacer(),
+                    OnHoverIcon(
+                      controllerKey: EText.youtube,
+                      icon: EIcons.youtube,
+                      onPressed: () {
+                        EDeviceUtils.launchUrl(EText.youtubeLink);
+                      },
+                    ),
+                    const Spacer(),
+                    OnHoverIcon(
+                      controllerKey: EText.instagram,
+                      icon: EIcons.instagram,
+                      onPressed: () {
+                        EDeviceUtils.launchUrl(EText.instagramLink);
+                      },
+                    ),
+                    const Spacer(flex: 3),
+                  ],
+                ),
+              ],
             ),
           ),
-
-          /// --- About --- ///
-          Obx(
-            () => ListTile(
-              // leading: const Icon(
-              //   EImages.iconHome,
-              //   color: EColors.secondary,
-              // ),
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 32.0, vertical: 8.0),
-              title: const Text(EText.about),
-              textColor: EColors.secondary,
-              selected: controller.currentPage.value == 1,
-              selectedColor: EColors.accent,
-              onTap: () {
-                controller.changePage(1);
-                Get.back();
-                // Get.toNamed(ERoutes.home);
-              },
-            ),
-          ),
-
-          /// --- Beats --- ///
-          Obx(
-            () => ListTile(
-              // leading: const Icon(
-              //   EImages.iconHome,
-              //   color: EColors.secondary,
-              // ),
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 32.0, vertical: 8.0),
-              title: const Text(EText.beats),
-              textColor: EColors.secondary,
-              selected: controller.currentPage.value == 2,
-              selectedColor: EColors.accent,
-              onTap: () {
-                controller.changePage(2);
-                Get.back();
-                // Get.toNamed(ERoutes.home);
-              },
-            ),
-          ),
-
-          /// --- Gallery --- ///
-          Obx(
-            () => ListTile(
-              // leading: const Icon(
-              //   EImages.iconHome,
-              //   color: EColors.secondary,
-              // ),
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 32.0, vertical: 8.0),
-              title: const Text(EText.gallery),
-              textColor: EColors.secondary,
-              selected: controller.currentPage.value == 3,
-              selectedColor: EColors.accent,
-              onTap: () {
-                controller.changePage(3);
-                Get.back();
-                // Get.toNamed(ERoutes.home);
-              },
-            ),
-          )
         ],
       ),
     );
